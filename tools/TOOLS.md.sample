@@ -1,0 +1,338 @@
+# 🛠️ TOOLS.md - 工具配置模板
+
+> **重要**：将此文件复制到 `~/.openclaw/workspace/TOOLS.md` 并填写你的具体配置
+
+## 📋 如何使用
+
+1. **复制模板**：
+   ```bash
+   cp tools/TOOLS.md.sample ~/.openclaw/workspace/TOOLS.md
+   ```
+
+2. **编辑配置**：填写你的具体设备信息和偏好
+3. **定期更新**：当添加新设备或工具时更新此文件
+
+## 🔧 硬件设备配置
+
+### 摄像头（如有）
+```markdown
+### 📷 摄像头配置
+
+- **living-room-cam** → 客厅主摄像头，180°广角，支持夜视
+- **front-door-cam** → 前门摄像头，人体感应，支持对讲
+- **office-cam** → 办公室摄像头，4K画质，支持云台控制
+
+连接方式：
+- RTSP地址：rtsp://admin:password@192.168.1.100:554
+- HTTP接口：http://192.168.1.100:80
+```
+
+### 智能家居
+```markdown
+### 🏠 智能家居设备
+
+- **living-room-light** → 客厅主灯，支持色温和亮度调节
+- **air-conditioner** → 空调，支持温度和模式控制
+- **robot-vacuum** → 扫地机器人，支持定时清扫
+
+控制协议：
+- Home Assistant API：http://homeassistant.local:8123
+- 访问令牌：从1Password获取
+```
+
+## 💻 服务器与网络
+
+### SSH 主机配置
+```markdown
+### 🖥️ SSH 服务器
+
+- **home-server** → 家庭服务器 (192.168.1.100)
+  - 用户：admin
+  - 端口：22
+  - 用途：NAS、Docker、家庭服务
+  
+- **vps-production** → 生产VPS (vps.example.com)
+  - 用户：deploy
+  - 端口：2222
+  - 用途：生产环境部署
+  
+- **vps-backup** → 备份VPS (backup.example.com)
+  - 用户：backup
+  - 端口：22
+  - 用途：异地备份存储
+```
+
+### VPN 配置
+```markdown
+### 🔒 VPN 连接
+
+- **home-vpn** → 家庭网络VPN
+  - 类型：WireGuard
+  - 配置文件：/etc/wireguard/home.conf
+  - 状态：自动连接
+  
+- **work-vpn** → 工作网络VPN
+  - 类型：OpenVPN
+  - 配置文件：/etc/openvpn/work.ovpn
+  - 状态：按需连接
+```
+
+## 🎤 语音与音频
+
+### TTS 语音配置
+```markdown
+### 🗣️ 文本转语音 (TTS)
+
+- **默认语音**：Nova（温暖，略带英式口音）
+- **讲故事语音**：Bella（生动，适合叙事）
+- **通知语音**：Echo（清晰，适合提醒）
+
+配置：
+- ElevenLabs API密钥：从1Password获取
+- 默认语速：1.0
+- 默认音高：0.8
+```
+
+### 音频设备
+```markdown
+### 🔊 扬声器配置
+
+- **kitchen-speaker** → 厨房HomePod
+  - 房间：厨房
+  - 音量：默认60%
+  - 用途：新闻、音乐、提醒
+  
+- **office-speaker** → 办公室蓝牙音箱
+  - 设备：Sony SRS-XB43
+  - 连接：蓝牙
+  - 用途：工作提醒、专注音乐
+  
+- **bedroom-speaker** → 卧室智能音箱
+  - 设备：小米小爱音箱
+  - 唤醒词："小爱同学"
+  - 用途：早晨闹钟、睡前故事
+```
+
+## 📡 API 服务端点
+
+### 内部服务
+```markdown
+### 🏭 内部API服务
+
+- **ollama-api** → 本地大模型服务
+  - 地址：http://localhost:11434
+  - 模型：qwen3.5:0.8b, llama3:8b
+  - 用途：本地推理、快速响应
+  
+- **redis-cache** → Redis缓存服务
+  - 地址：redis://localhost:6379
+  - 数据库：0-15
+  - 用途：会话缓存、临时存储
+  
+- **postgres-db** → PostgreSQL数据库
+  - 地址：postgresql://localhost:5432
+  - 数据库：openclaw_prod
+  - 用途：持久化存储、历史记录
+```
+
+### 外部服务
+```markdown
+### 🌐 外部API服务
+
+- **weather-api** → 天气服务
+  - 提供商：Open-Meteo
+  - 端点：https://api.open-meteo.com/v1
+  - 用途：天气预报、天气提醒
+  
+- **news-api** → 新闻服务
+  - 提供商：NewsAPI
+  - 端点：https://newsapi.org/v2
+  - 用途：新闻摘要、行业动态
+  
+- **stock-api** → 股票服务
+  - 提供商：Alpha Vantage
+  - 端点：https://www.alphavantage.co/query
+  - 用途：股票监控、财经新闻
+```
+
+## 🗂️ 文件路径配置
+
+### 工作目录
+```markdown
+### 📁 重要目录路径
+
+- **工作区根目录**：~/.openclaw/workspace
+- **记忆文件目录**：~/.openclaw/workspace/memory
+- **技能目录**：~/.openclaw/workspace/skills
+- **备份目录**：~/.openclaw/backup
+- **日志目录**：~/.openclaw/logs
+- **临时文件目录**：~/.openclaw/tmp
+```
+
+### 项目目录
+```markdown
+### 💼 项目目录映射
+
+- **koalabearBOT项目**：/path/to/koalabearBOT
+- **个人文档**：/path/to/personal-docs
+- **工作项目**：/path/to/work-projects
+- **学习资料**：/path/to/learning-materials
+```
+
+## ⚙️ 工具偏好设置
+
+### CLI 工具别名
+```markdown
+### 🔤 命令行别名
+
+# Git 简化
+alias gs='git status'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline -10'
+
+# Docker 简化
+alias dps='docker ps'
+alias dim='docker images'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+
+# 系统监控
+alias cpu='htop'
+alias mem='free -h'
+alias disk='df -h'
+```
+
+### 编辑器配置
+```markdown
+### 📝 编辑器偏好
+
+- **默认编辑器**：vim
+- **GUI编辑器**：VSCode
+- **代码格式化**：使用 prettier
+- **文件编码**：UTF-8
+
+VSCode 配置：
+- 主题：GitHub Dark Default
+- 字体：JetBrains Mono
+- 字号：14
+- 自动保存：开启
+```
+
+## 🔐 安全配置
+
+### 密码管理提示
+```markdown
+### 🔑 密码管理
+
+- **主密码管理器**：1Password
+- **备份密码管理器**：Bitwarden
+- **紧急访问**：设置信任联系人
+
+访问方式：
+- 1Password CLI：`op` 命令
+- 浏览器扩展：已安装
+- 移动应用：已配置
+```
+
+### 双因素认证
+```markdown
+### ⚡ 2FA 配置
+
+- **GitHub**：使用 Authy
+- **Google**：使用 Google Authenticator
+- **重要服务**：全部启用2FA
+
+恢复码存储：
+- 1Password Secure Note
+- 加密USB驱动器
+- 纸质备份（安全存放）
+```
+
+## 🔄 同步配置
+
+### 文件同步
+```markdown
+### 🔄 跨设备同步
+
+- **工作区同步**：通过 Git 私有仓库
+- **记忆文件同步**：加密后通过 rsync
+- **配置文件同步**：通过 dotfiles 仓库
+
+同步频率：
+- 工作区：每小时自动提交
+- 记忆文件：每天加密备份
+- 配置文件：手动同步
+```
+
+### 云存储
+```markdown
+### ☁️ 云存储服务
+
+- **Google Drive**：文档和表格
+- **Dropbox**：个人文件
+- **OneDrive**：工作文件
+- **iCloud**：苹果设备同步
+
+同步规则：
+- 敏感文件：本地加密后上传
+- 大文件：使用云存储链接
+- 临时文件：不同步
+```
+
+## 📊 监控与日志
+
+### 系统监控
+```markdown
+### 📈 监控配置
+
+- **CPU/内存监控**：使用 htop
+- **磁盘监控**：使用 df + du
+- **网络监控**：使用 iftop
+- **进程监控**：使用 ps + top
+
+告警阈值：
+- CPU使用率：>80% 持续5分钟
+- 内存使用率：>90%
+- 磁盘使用率：>85%
+```
+
+### 日志管理
+```markdown
+### 📋 日志配置
+
+- **OpenClaw日志**：~/.openclaw/logs/
+- **系统日志**：/var/log/
+- **应用日志**：按应用配置
+
+日志轮转：
+- 每天轮转
+- 保留最近30天
+- 压缩旧日志
+```
+
+## 🎯 使用提示
+
+### 最佳实践
+1. **定期更新**：每周检查并更新此文件
+2. **版本控制**：将此文件纳入备份系统
+3. **安全第一**：绝不在此文件中存储密码或密钥
+4. **保持简洁**：只记录必要的信息
+
+### 故障排除
+```bash
+# 检查工具配置
+cat ~/.openclaw/workspace/TOOLS.md | head -20
+
+# 验证路径存在
+ls -la ~/.openclaw/workspace/
+
+# 重新加载配置
+# 重启 OpenClaw 服务使配置生效
+```
+
+---
+
+**记住**：此文件是你的工作环境地图。详细的地图能让你在任何地方快速重建工作环境。
+
+> *"好的工具配置，是效率的一半。"* — 程序员谚语

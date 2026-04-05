@@ -1,0 +1,102 @@
+# ============================================
+# koalabearBOT - 安全备份 .gitignore
+# ============================================
+# 创建时间: 2026-04-05
+# 安全策略: 绝对不暴露敏感数据
+# ============================================
+
+# ========== 第一层：配置文件敏感数据 ==========
+# 所有包含真实 API 密钥的配置文件
+**/*.json.bak
+**/*.bak
+**/*.backup
+**/openclaw.json
+**/update-check.json
+
+# 环境变量和密钥文件
+**/.env*
+**/*.key
+**/*.secret
+**/*.token
+**/*.credential*
+**/*.password*
+
+# ========== 第二层：工作区隐私数据 ==========
+# 工作区隐私文件（绝对不上传）
+**/MEMORY.md
+**/USER.md
+**/IDENTITY.md
+**/SOUL.md
+**/BOOTSTRAP.md
+**/AGENTS.md
+
+# 记忆文件
+**/memory/*.md
+**/workspace/memory/*.md
+
+# 备份文件目录
+**/backup/
+**/workspace/backup/
+
+# ========== 第三层：大模型和下载文件 ==========
+# 大模型文件（GB级别，不上传）
+**/models/
+**/workspace/models/
+**/*.bin
+**/*.gguf
+**/*.safetensors
+**/*.pth
+**/*.pt
+**/*.onnx
+**/*.ckpt
+
+# ========== 第四层：日志和临时文件 ==========
+# 日志文件
+**/logs/
+**/workspace/logs/
+**/*.log
+**/*.log.*
+
+# 临时文件
+**/tmp/
+**/workspace/tmp/
+**/*.tmp
+**/*.temp
+
+# ========== 第五层：系统和个人文件 ==========
+# 操作系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+\#*#
+.#*
+
+# IDE 配置文件
+.vscode/
+.idea/
+*.code-workspace
+
+# ========== 第六层：媒体和二进制文件 ==========
+# 大文件（通过 Git LFS 管理）
+*.mp4
+*.avi
+*.mov
+*.wav
+*.mp3
+*.flac
+*.zip
+*.tar
+*.gz
+*.rar
+*.7z
+
+# ========== 第七层：特殊排除 ==========
+# 工作区文件夹本身（按主人要求）
+workspace/
+
+# 已下载的技能包（从 clawhub.com 下载）
+**/clawhub-downloads/
+**/skills-repo/

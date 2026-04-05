@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.22",
+    "lastTouchedAt": "2026-04-05T04:12:00.000Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-23T23:18:54.236Z",
+    "lastRunVersion": "2026.3.22",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "custom-gptapi-asia": {
+        "baseUrl": "https://gptapi.asia/v1",
+        "apiKey": "REPLACE_WITH_YOUR_API_KEY",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "deepseek-v3.2",
+            "name": "deepseek-v3.2 (Custom Provider)",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 128000,
+            "maxTokens": 40960
+          }
+        ]
+      },
+      "ollama": {
+        "baseUrl": "http://localhost:11434",
+        "api": "ollama",
+        "models": [
+          {
+            "id": "qwen3.5:0.8b",
+            "name": "Qwen3.5 0.8B (Local Ollama)",
+            "reasoning": false,
+            "input": ["text"],
+            "contextWindow": 32768,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "defaultModel": "custom-gptapi-asia/deepseek-v3.2",
+  "preferences": {
+    "allowClipboard": false,
+    "showThinking": false,
+    "confirm": true,
+    "thinkingMode": "default"
+  },
+  "chat": {
+    "history": {
+      "maxMessages": 100
+    }
+  },
+  "gateway": {
+    "listen": "127.0.0.1:8765",
+    "allowedOrigins": ["http://localhost:3000", "http://localhost:3001"]
+  }
+}
